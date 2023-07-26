@@ -13,7 +13,7 @@ for _ in range(10):
 
 	result = r.json()
 	try:
-    latest = result['dist-tags']['latest']
+    		latest = result['dist-tags']['latest']
 		assert latest=='0.0.1', f"Version mismatch {latest}"
 	except e:
 		print(e, r.text)
