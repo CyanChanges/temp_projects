@@ -16,5 +16,6 @@ for _ in range(10):
 		assert latest=='0.0.1', f"Version mismatch {latest}"
 	except Exception as e:
 		print(e, r.text)
+		raise
 	print("complete ----------")
 	time.sleep(60)
