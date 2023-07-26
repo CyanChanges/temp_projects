@@ -15,7 +15,7 @@ for _ in range(10):
 	try:
     		latest = result['dist-tags']['latest']
 		assert latest=='0.0.1', f"Version mismatch {latest}"
-	except e:
+	except Exception as e:
 		print(e, r.text)
 
 	print("complete ----------")
