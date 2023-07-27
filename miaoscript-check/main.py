@@ -10,12 +10,14 @@ from rich.console import Console
 from rich.traceback import install
 install(show_locals=True)
 
-console = Console()
+console = Console(color_system='truecolor')
 
 FORMAT = "%(message)s"
 logging.basicConfig(
     level="NOTSET", format=FORMAT, datefmt="[%X]", handlers=[RichHandler()]
 )
+
+logger = logging.getLogger("checker")
 
 headers = {"content-type": "application/json"}
 
@@ -24,7 +26,7 @@ for _ in range(40):
 	try:
 		r.raise_for_status()
 	except:
-		print(r.text)
+		logger.warn(r.text)
 		
 	result = r.json()
 	try:
@@ -32,8 +34,10 @@ for _ in range(40):
 		assert latest=='0.0.1', f"Version mismatch {latest}"
 	except Exception:
 		console.print_traceback(show_locals=True)
+		raise
 		
 	pprint(result)
 	      
-	print("[green] complete")
+	logger.success("[green] complete")
+	
 	time.sleep(30)
