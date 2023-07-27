@@ -10,7 +10,7 @@ from rich.console import Console
 from rich.traceback import install
 install(show_locals=True)
 
-console = Console(color_system='truecolor')
+console = Console(color_system='truecolor', width=65)
 
 FORMAT = "%(message)s"
 logging.basicConfig(
@@ -38,6 +38,6 @@ for _ in range(40):
 		
 	pprint(result)
 	      
-	logger.success("[green] complete")
+	logger.info("[green] complete")
 	
 	time.sleep(30)
