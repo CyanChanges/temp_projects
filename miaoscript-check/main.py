@@ -38,6 +38,6 @@ for _ in range(40):
 		
 	pprint(result)
 	      
-	logger.info("[green] complete")
+	logger.info("[green]complete", extra={"markup": True})
 	
 	time.sleep(30)
