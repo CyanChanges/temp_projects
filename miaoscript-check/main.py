@@ -35,7 +35,7 @@ for _ in range(40):
 	matches = []
 
 	for idx, name in enumerate(package_names):
-		if 'miao' in name or plugins[idx]['publisher']['email'] == 'admin@yumc.pw':
+		if 'miao' in name or plugins[idx]['package']['publisher']['email'] == 'admin@yumc.pw':
 			matches.append(plugins[idx])
 	
 	pprint('\n'.join(
