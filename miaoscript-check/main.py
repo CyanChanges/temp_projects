@@ -36,8 +36,12 @@ for _ in range(40):
 
 	for name in package_names:
 		if 'miaoscript' in name:
-			matches.append(package_names[name])
+			matches.append(plugins[name])
 	
+	pprint('\n'.join(
+		[f'{match['package']['name']} {match['package']['publisher']['username']} {match['package']['version']}' for match in matches]
+		))
+
 	pprint(matches)
 	      
 	logger.info("[green]complete", extra={"markup": True})
