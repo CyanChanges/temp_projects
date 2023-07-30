@@ -30,7 +30,7 @@ for _ in range(40):
 		
 	result = r.json()
 	plugins = result['objects']
-	package_names = map(lambda p: p['package']['shortname'], plugins)
+	package_names = map(lambda p: p['shortname'], plugins)
 
 	matches = []
 
