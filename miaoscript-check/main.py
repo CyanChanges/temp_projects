@@ -34,9 +34,9 @@ for _ in range(40):
 
 	matches = []
 
-	for name in package_names:
+	for idx, name in enumerate(package_names):
 		if 'miaoscript' in name:
-			matches.append(plugins[name])
+			matches.append(plugins[idx])
 	
 	pprint('\n'.join(
 		[f"{match['package']['name']} {match['package']['publisher']['username']} {match['package']['version']}" for match in matches]
