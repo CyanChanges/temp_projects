@@ -38,9 +38,9 @@ for _ in range(40):
 		if 'miao' in name or plugins[idx]['package']['publisher']['email'] == 'admin@yumc.pw':
 			matches.append(plugins[idx])
 	
-	pprint('\n'.join(
+	print(
 		[f"{match['shortname']} {match['package']['publisher']['username']} {match['package']['version']}" for match in matches]
-		))
+		, sep='\n')
 
 	pprint(matches)
 	      
