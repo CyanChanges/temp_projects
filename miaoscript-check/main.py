@@ -35,11 +35,11 @@ for _ in range(40):
 	matches = []
 
 	for idx, name in enumerate(package_names):
-		if 'miao' in name or plugin[idx]['package']['publisher']['email'] == 'admin@yumc.pw':
+		if 'miao' in name or plugin[idx]['publisher']['email'] == 'admin@yumc.pw':
 			matches.append(plugins[idx])
 	
 	pprint('\n'.join(
-		[f"{match['package']['shortname']} {match['package']['publisher']['username']} {match['package']['version']}" for match in matches]
+		[f"{match['shortname']} {match['package']['publisher']['username']} {match['package']['version']}" for match in matches]
 		))
 
 	pprint(matches)
