@@ -30,20 +30,20 @@ for _ in range(40):
 		
 	result = r.json()
 	plugins = result['objects']
-	package_names = map(lambda p: p['package']['name'], plugins)
+	package_names = map(lambda p: p['package']['shortname'], plugins)
 
 	matches = []
 
 	for idx, name in enumerate(package_names):
-		if 'miaoscript' in name:
+		if 'miao' in name or plugin[idx]['package']['publisher']['email'] == 'admin@yumc.pw':
 			matches.append(plugins[idx])
 	
 	pprint('\n'.join(
-		[f"{match['package']['name']} {match['package']['publisher']['username']} {match['package']['version']}" for match in matches]
+		[f"{match['package']['shortname']} {match['package']['publisher']['username']} {match['package']['version']}" for match in matches]
 		))
 
 	pprint(matches)
 	      
 	logger.info("[green]complete", extra={"markup": True})
 	
-	time.sleep(30)
+	time.sleep(90)
