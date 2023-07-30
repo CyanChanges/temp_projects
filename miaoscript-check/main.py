@@ -39,8 +39,9 @@ for _ in range(40):
 			matches.append(plugins[idx])
 	
 	print(
-		*[f"{match['shortname']}\t\t{match['package']['publisher']['username']}\t\t{match['package']['version']}" for match in matches]
-		, sep='\n')
+		*[f"{match['shortname']}\t\t\t{match['package']['publisher']['username']}\t\t{match['package']['version']}" for match in matches]
+		, sep='\n'
+	)
 
 	pprint(matches)
 	      
