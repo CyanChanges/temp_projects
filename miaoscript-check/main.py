@@ -39,7 +39,7 @@ for _ in range(40):
 			matches.append(plugins[name])
 	
 	pprint('\n'.join(
-		[f'{match['package']['name']} {match['package']['publisher']['username']} {match['package']['version']}' for match in matches]
+		[f"{match['package']['name']} {match['package']['publisher']['username']} {match['package']['version']}" for match in matches]
 		))
 
 	pprint(matches)
