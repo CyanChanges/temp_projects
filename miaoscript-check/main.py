@@ -22,21 +22,23 @@ logger = logging.getLogger("checker")
 headers = {"content-type": "application/json"}
 
 for _ in range(40):
-	r = requests.get("https://registry.npmjs.org/koishi-plugin-miaoscript")
+	r = requests.get("https://registry.koishi.chat")
 	try:
 		r.raise_for_status()
 	except:
 		logger.warn(r.text)
 		
 	result = r.json()
-	try:
-		latest = result['dist-tags']['latest']
-		assert latest=='0.0.1', f"Version mismatch {latest}"
-	except Exception:
-		console.print_traceback(show_locals=True)
-		raise
-		
-	pprint(result)
+	plugins = result['objects']
+	package_names = map(lambda p: p['package']['name'], plugins)
+
+	matches = []
+
+	for name in package_names:
+		if 'miaoscript' in name:
+			matches.append(package_names[name])
+	
+	pprint(matches)
 	      
 	logger.info("[green]complete", extra={"markup": True})
 	
